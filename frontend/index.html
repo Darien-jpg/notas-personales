@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas Personales</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📝 Mis Notas Personales</h1>
+            <div class="user-info">
+                <span id="username">Usuario</span>
+                <button id="logoutBtn" class="btn btn-secondary">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar en notas...">
+                <button id="searchBtn" class="btn btn-primary">Buscar</button>
+            </div>
+            <div class="filters">
+                <select id="categoryFilter">
+                    <option value="all">Todas las categorías</option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Trabajo</option>
+                    <option value="study">Estudio</option>
+                    <option value="ideas">Ideas</option>
+                    <option value="other">Otros</option>
+                </select>
+                <button id="newNoteBtn" class="btn btn-primary">Nueva Nota</button>
+            </div>
+        </div>
+
+        <div class="notes-grid" id="notesGrid">
+            <!-- Las notas se cargan dinámicamente aquí -->
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- Paginación dinámica -->
+        </div>
+    </div>
+
+    <!-- Modal para crear/editar notas -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Nueva Nota</h2>
+            <form id="noteForm">
+                <input type="hidden" id="noteId">
+                <div class="form-group">
+                    <label for="noteTitle">Título:</label>
+                    <input type="text" id="noteTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="noteContent">Contenido:</label>
+                    <textarea id="noteContent" rows="6" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="noteCategory">Categoría:</label>
+                    <select id="noteCategory">
+                        <option value="personal">Personal</option>
+                        <option value="work">Trabajo</option>
+                        <option value="study">Estudio</option>
+                        <option value="ideas">Ideas</option>
+                        <option value="other">Otros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="noteColor">Color de fondo:</label>
+                    <input type="color" id="noteColor" value="#ffffff">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="notePinned"> Fijar nota
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/notes.js"></script>
+</body>
+</html>
